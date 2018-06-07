@@ -1,0 +1,30 @@
+h1 {
+    font-family: 'Lato', serif;
+    font-weight: 100;
+}
+
+h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+h5 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 100;
+}
+
+.info-btn {
+    margin: 30px 0;
+}
+
+.btn-linkedin {
+    color: #fff;
+    background-color: #0077B5;
+    border-color: #0077B5;
+}
+
+.btn-google {
+    color: #fff;
+    background-color: #CE3E2E;
+    border-color: #CE3E2E;
+}

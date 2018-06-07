@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <form>
+            <div class="form-row">
+              <div class="form-group col-xl-1 col-md-2 col-sm-1">
+                <label for="id">ID</label>
+                <input [(ngModel)]="this.id" type="text" class="form-control" name="id" id="id" disabled>
+              </div>
+              <div class="form-group col-xl col-md-10 col-sm-10">
+                <label for="nome_tarefa">Tarefa</label>
+                <input [(ngModel)]="this.task_name" type="text" class="form-control" name="nome_tarefa" id="nome_tarefa">
+              </div>
+              <div class="form-group col-xl-2 col-md-6 col-sm-6">
+                <label for="tempo_duracao">Tempo de Duração</label>
+                <input [(ngModel)]="this.time" type="number" class="form-control" name="tempo_duracao" id="tempo_duracao">
+              </div>
+              <div class="form-group col-xl-2 col-md-6 col-sm-6">
+                <label for="prioridade">Prioridade</label>
+                <input [(ngModel)]="this.priority" type="number" class="form-control" name="prioridade" id="prioridade">
+              </div>
+            </div>
+          </form>
+          <button (click)="insert()" type="button" class="btn btn-primary btn btn-block">Inserir</button>
+          <button (click)="execute()" type="button" class="btn btn-danger btn btn-block" [disabled]="this.disabled">Executar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="card" *ngIf="this.tasks.length == 0">
+        <div class="card-body">
+          <h6 class="text-center">Não existe tarefas cadastradas</h6>
+        </div>
+      </div>
+      <div class="card" *ngIf="this.tasks.length > 0">
+        <div class="card-body card-table">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Tarefa</th>
+                <th scope="col">Tempo de Duração</th>
+                <th scope="col">Prioridade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let task of tasks">
+                <td>{{task.id}}</td>
+                <td>{{task.task_name}}</td>
+                <td>{{task.time}}</td>
+                <td>{{task.priority}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
