@@ -4,6 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { FormsModule } from '@angular/forms';
 
+import { NgxGaugeModule } from 'ngx-gauge';
+
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -32,7 +35,7 @@ const appRoutes: Routes = [
     HomeComponent,
     CreateTaskComponent,
     ChooseAlgorithmComponent,
-    ExecuteComponent
+    ExecuteComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: false }
-    )
+    ),
+    NgxGaugeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
