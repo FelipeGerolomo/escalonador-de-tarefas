@@ -24,7 +24,8 @@
             </div>
           </form>
           <button (click)="insert()" type="button" class="btn btn-primary btn btn-block">Inserir</button>
-          <button (click)="execute()" type="button" class="btn btn-danger btn btn-block" [disabled]="this.disabled">Executar</button>
+          <button (click)="execute()" type="button" class="btn btn-danger btn btn-block">Executar</button>
+          <button (click)="this.taskService.getDefaultTasks()" type="button" class="btn btn-secondary btn btn-block">Lista Sugerida</button>
         </div>
       </div>
     </div>
@@ -34,12 +35,12 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col">
-      <div class="card" *ngIf="this.tasks.length == 0">
+      <div class="card" *ngIf="this.taskService.tasks.length == 0">
         <div class="card-body">
           <h6 class="text-center">Não existe tarefas cadastradas</h6>
         </div>
       </div>
-      <div class="card" *ngIf="this.tasks.length > 0">
+      <div class="card" *ngIf="this.taskService.tasks.length > 0">
         <div class="card-body card-table">
           <table class="table">
             <thead>
@@ -51,7 +52,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let task of tasks">
+              <tr *ngFor="let task of this.taskService.tasks">
                 <td>{{task.id}}</td>
                 <td>{{task.task_name}}</td>
                 <td>{{task.time}}</td>
