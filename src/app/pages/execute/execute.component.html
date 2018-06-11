@@ -2,19 +2,120 @@
   <div class="row">
     <div class="col-md-3">
       <div class="card">
-        <div class="card-body"></div>
+        <div class="card-header">
+          <h6 class="text-center">
+            USO CPU
+          </h6>
+        </div>
+        <div class="card-body d-flex justify-content-center align-items-center">
+          <ngx-gauge [type]="gaugeType" [cap]="gaugeCap" [value]="gaugeValue" [thick]="gaugeThick" [label]="gaugeLabel" [append]="gaugeAppendText"
+            [duration]="gaugeDuration" [foregroundColor]="gaugeForegroundColor" [backgroundColor]="gaugeBackgroundColor">
+          </ngx-gauge>
+          <button (click)="changeValue()">TESTE</button>
+        </div>
       </div>
     </div>
     <div class="col">
       <div class="card">
+        <div class="card-header">
+          <h6 class="text-center">
+            VIEW
+          </h6>
+        </div>
         <div class="card-body">
-          <!-- <img src="../assets/img/teste.svg" alt=""> -->
+          <div class="row">
+            <div class="col">
+              <embed src="../assets/img/cpu.svg" type="" />
+            </div>
+            <div class="col">
+
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div class="col-md-3">
       <div class="card">
-        <div class="card-body"></div>
+        <div class="card-header">
+          <h6 class="text-center">
+            OPÇÕES
+          </h6>
+        </div>
+        <div class="card-body" style="height: 240px;">
+          <button (click)="this.fifo()" type="button" class="btn btn-danger btn btn-block">Executar</button>
+          <button type="button" class="btn btn-secondary btn btn-block">Voltar</button>
+          <button type="button" class="btn btn btn-info btn btn-block">Resetar</button>
+          <button type="button" class="btn btn-primary btn btn-block">Página Inicial</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h6 class="text-center">
+            TAREFAS PENDENTES
+          </h6>
+        </div>
+        <div class="card-body" *ngIf="this.task_pending.length == 0">
+          <h6 class="text-center">Não existe tarefas pendentes</h6>
+        </div>
+        <div class="card-body p-0" *ngIf="this.task_pending.length > 0">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Tarefa</th>
+                <th scope="col">Tempo de Duração</th>
+                <th scope="col">Prioridade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let task of task_pending">
+                <td>{{task.id}}</td>
+                <td>{{task.task_name}}</td>
+                <td>{{task.time}}</td>
+                <td>{{task.priority}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h6 class="text-center">
+            TAREFAS EXECUTADAS
+          </h6>
+        </div>
+        <div class="card-body" *ngIf="this.task_executed.length == 0">
+          <h6 class="text-center">Não existe tarefas executadas</h6>
+        </div>
+        <div class="card-body p-0" *ngIf="this.task_executed.length > 0">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Tarefa</th>
+                <th scope="col">Tempo de Duração</th>
+                <th scope="col">Prioridade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let task of task_executed">
+                    <td>{{task.id}}</td>
+                    <td>{{task.task_name}}</td>
+                    <td>{{task.time}}</td>
+                    <td>{{task.priority}}</td>
+                  </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

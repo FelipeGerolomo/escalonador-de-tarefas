@@ -4,6 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { FormsModule } from '@angular/forms';
 
+import { NgxGaugeModule } from 'ngx-gauge';
+
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -11,14 +14,18 @@ import { CreateTaskComponent } from './pages/create-task/create-task.component';
 import { ChooseAlgorithmComponent } from './pages/choose-algorithm/choose-algorithm.component';
 import { ExecuteComponent } from './pages/execute/execute.component';
 
+import { TaskSchedulerService } from './services/task-scheduler.service';
+
 const appRoutes: Routes = [
-  { path: '',
+  {
+    path: '',
     redirectTo: 'home',
     pathMatch: 'full'
   },
   { path: 'home', component: HomeComponent },
   { path: 'task', component: CreateTaskComponent },
   { path: 'execute', component: ExecuteComponent },
+  { path: 'algorithm', component: ChooseAlgorithmComponent },
 ];
 
 
@@ -32,7 +39,7 @@ const appRoutes: Routes = [
     HomeComponent,
     CreateTaskComponent,
     ChooseAlgorithmComponent,
-    ExecuteComponent
+    ExecuteComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,9 +47,10 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: false }
-    )
+    ),
+    NgxGaugeModule
   ],
-  providers: [],
+  providers: [TaskSchedulerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
