@@ -1,10 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { FormsModule } from '@angular/forms';
 
 import { NgxGaugeModule } from 'ngx-gauge';
+import { InlineSVGModule } from 'ng-inline-svg'; //excluir
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 
 import { AppComponent } from './app.component';
@@ -15,6 +18,7 @@ import { ChooseAlgorithmComponent } from './pages/choose-algorithm/choose-algori
 import { ExecuteComponent } from './pages/execute/execute.component';
 
 import { TaskSchedulerService } from './services/task-scheduler.service';
+import { CpuSvgComponent } from './components/svg/cpu-svg/cpu-svg.component';
 
 const appRoutes: Routes = [
   {
@@ -40,15 +44,19 @@ const appRoutes: Routes = [
     CreateTaskComponent,
     ChooseAlgorithmComponent,
     ExecuteComponent,
+    CpuSvgComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: false }
     ),
-    NgxGaugeModule
+    NgxGaugeModule,
+    InlineSVGModule.forRoot(),
+    AngularSvgIconModule
   ],
   providers: [TaskSchedulerService],
   bootstrap: [AppComponent]

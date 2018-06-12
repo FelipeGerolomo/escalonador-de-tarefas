@@ -11,7 +11,6 @@
           <ngx-gauge [type]="gaugeType" [cap]="gaugeCap" [value]="gaugeValue" [thick]="gaugeThick" [label]="gaugeLabel" [append]="gaugeAppendText"
             [duration]="gaugeDuration" [foregroundColor]="gaugeForegroundColor" [backgroundColor]="gaugeBackgroundColor">
           </ngx-gauge>
-          <button (click)="changeValue()">TESTE</button>
         </div>
       </div>
     </div>
@@ -24,11 +23,16 @@
         </div>
         <div class="card-body">
           <div class="row">
-            <div class="col">
-              <embed src="../assets/img/cpu.svg" type="" />
+            <div class="col-4 d-flex justify-content-center align-items-center">
+              <app-cpu-svg [status]="animationSVG" class="my-svg"></app-cpu-svg>
             </div>
             <div class="col">
-
+              <div class="console">
+                <div class="container">
+                  <h1 class="{{animation}}">{{console_status}}</h1>
+                  <h2 class="text-center">{{console_text}}</h2>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -108,11 +112,11 @@
             </thead>
             <tbody>
               <tr *ngFor="let task of task_executed">
-                    <td>{{task.id}}</td>
-                    <td>{{task.task_name}}</td>
-                    <td>{{task.time}}</td>
-                    <td>{{task.priority}}</td>
-                  </tr>
+                <td>{{task.id}}</td>
+                <td>{{task.task_name}}</td>
+                <td>{{task.time}}</td>
+                <td>{{task.priority}}</td>
+              </tr>
             </tbody>
           </table>
         </div>

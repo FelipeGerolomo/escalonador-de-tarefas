@@ -1,0 +1,9 @@
+/* #SJjcTH_gm  { animation-iteration-count: infinite; } */
+
+.infinite-animation {
+    animation-iteration-count: infinite;
+}
+
+.stopAnimation {
+    animation-play-state: paused;
+}
