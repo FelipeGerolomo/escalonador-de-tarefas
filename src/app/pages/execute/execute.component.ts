@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskSchedulerService } from '../../services/task-scheduler.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -31,7 +32,7 @@ export class ExecuteComponent implements OnInit {
   gaugeForegroundColor = "rgb(116, 185, 255)";
   gaugeBackgroundColor = "rgba(0, 0, 0, 0.1)";
 
-  constructor(private taskService: TaskSchedulerService) {
+  constructor(private taskService: TaskSchedulerService, private router: Router) {
     this.task_pending = [];
     this.task_executed = [];
     this.console_status = 'PARADO';
@@ -40,6 +41,15 @@ export class ExecuteComponent implements OnInit {
     this.animationSVG = 'stopAnimation';
     this.getTasks();
   }
+
+  backCreateTask() {
+    this.router.navigateByUrl('task')
+  }
+
+  homePage() {
+    this.router.navigateByUrl('')
+  }
+
 
   fifo() {
     for (let index = 0; index < this.task_pending.length; index++) {

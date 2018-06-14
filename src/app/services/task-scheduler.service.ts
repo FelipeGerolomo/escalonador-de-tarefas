@@ -13,12 +13,10 @@ export class TaskSchedulerService {
     this.tasks = [];
     this.task_pending = [];
     this.task_executed = [];
-    this.getDefaultTasks();
   }
 
   getDefaultTasks() {
     this.tasks = this.defaultTasks;
-    // console.log(this.tasks)
   }
 
 
