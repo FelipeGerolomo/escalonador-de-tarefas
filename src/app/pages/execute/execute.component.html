@@ -41,7 +41,12 @@
             OPÇÕES
           </h6>
         </div>
-        <div class="card-body"></div>
+        <div class="card-body" style="height: 240px;">
+          <button (click)="this.fifo()" type="button" class="btn btn-danger btn btn-block">Executar</button>
+          <button type="button" class="btn btn-secondary btn btn-block">Voltar</button>
+          <button type="button" class="btn btn btn-info btn btn-block">Resetar</button>
+          <button type="button" class="btn btn-primary btn btn-block">Página Inicial</button>
+        </div>
       </div>
     </div>
   </div>
@@ -56,7 +61,29 @@
             TAREFAS PENDENTES
           </h6>
         </div>
-        <div class="card-body"></div>
+        <div class="card-body" *ngIf="this.task_pending.length == 0">
+          <h6 class="text-center">Não existe tarefas pendentes</h6>
+        </div>
+        <div class="card-body p-0" *ngIf="this.task_pending.length > 0">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Tarefa</th>
+                <th scope="col">Tempo de Duração</th>
+                <th scope="col">Prioridade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let task of task_pending">
+                <td>{{task.id}}</td>
+                <td>{{task.task_name}}</td>
+                <td>{{task.time}}</td>
+                <td>{{task.priority}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
     <div class="col">
@@ -66,7 +93,29 @@
             TAREFAS EXECUTADAS
           </h6>
         </div>
-        <div class="card-body"></div>
+        <div class="card-body" *ngIf="this.task_executed.length == 0">
+          <h6 class="text-center">Não existe tarefas executadas</h6>
+        </div>
+        <div class="card-body p-0" *ngIf="this.task_executed.length > 0">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Tarefa</th>
+                <th scope="col">Tempo de Duração</th>
+                <th scope="col">Prioridade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let task of task_executed">
+                    <td>{{task.id}}</td>
+                    <td>{{task.task_name}}</td>
+                    <td>{{task.time}}</td>
+                    <td>{{task.priority}}</td>
+                  </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

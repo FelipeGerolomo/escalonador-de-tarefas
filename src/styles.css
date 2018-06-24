@@ -21,6 +21,10 @@ body {
     margin-right: 10px;
 }
 
+.p-0 {
+    padding: 0px;
+}
+
 .card {
     background: #ffffff none repeat scroll 0 0;
     margin: 15px 0;
@@ -36,4 +40,42 @@ body {
 
 h1, h2, h3, h4, h5, h6, p {
     margin-bottom: 0px;
+}
+
+
+
+table {
+    width: 100%;
+    display: table;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table, th, td {
+    border: none;
+}
+
+thead {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+tr {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    font-weight: 400;
+}
+
+td, th {
+    padding: 6px 10px;
+}
+
+td, th {
+    display: table-cell;
+    text-align: left;
+    vertical-align: middle;
+    border-radius: 1px;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 1px solid #dee2e6;
 }

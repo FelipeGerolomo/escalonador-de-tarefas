@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TaskSchedulerService } from '../../services/task-scheduler.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -16,7 +17,7 @@ export class CreateTaskComponent implements OnInit {
 
   disabled: any;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private taskService: TaskSchedulerService) {
     this.tasks = []
     this.id = 1;
     this.disabled = true;
@@ -29,19 +30,18 @@ export class CreateTaskComponent implements OnInit {
 
 
   insert() {
-    this.tasks.push(
-      {
-        id: this.id,
-        task_name: this.task_name,
-        time: this.time,
-        priority: this.priority,
-      })
+    this.taskService.tasks.push({
+      id: this.id,
+      task_name: this.task_name,
+      time: this.time,
+      priority: this.priority,
+    })
     this.disabled = false;
     this.id++;
     this.task_name = null;
     this.time = null;
     this.priority = null;
-    console.log(this.tasks)
+    console.log(this.taskService.tasks)
   }
 
   ngOnInit() {

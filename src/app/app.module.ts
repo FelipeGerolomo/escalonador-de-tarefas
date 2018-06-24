@@ -14,14 +14,18 @@ import { CreateTaskComponent } from './pages/create-task/create-task.component';
 import { ChooseAlgorithmComponent } from './pages/choose-algorithm/choose-algorithm.component';
 import { ExecuteComponent } from './pages/execute/execute.component';
 
+import { TaskSchedulerService } from './services/task-scheduler.service';
+
 const appRoutes: Routes = [
-  { path: '',
+  {
+    path: '',
     redirectTo: 'home',
     pathMatch: 'full'
   },
   { path: 'home', component: HomeComponent },
   { path: 'task', component: CreateTaskComponent },
   { path: 'execute', component: ExecuteComponent },
+  { path: 'algorithm', component: ChooseAlgorithmComponent },
 ];
 
 
@@ -46,7 +50,7 @@ const appRoutes: Routes = [
     ),
     NgxGaugeModule
   ],
-  providers: [],
+  providers: [TaskSchedulerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
