@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TaskSchedulerService } from '../../services/task-scheduler.service';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ChooseAlgorithmComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private taskService: TaskSchedulerService, private router: Router) { }
 
   goCreateTask() {
     this.router.navigateByUrl('task')

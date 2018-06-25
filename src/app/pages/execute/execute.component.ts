@@ -20,7 +20,8 @@ export class ExecuteComponent implements OnInit {
 
 
   animationSVG: any;
-  
+
+  maiorPrioridade: any
 
   gaugeType = "arch";
   gaugeValue = 28;
@@ -40,6 +41,57 @@ export class ExecuteComponent implements OnInit {
     this.animation = '';
     this.animationSVG = 'stopAnimation';
     this.getTasks();
+    console.log(this.taskService.algoritimo)
+    this.maiorPrioridade = 0
+    console.log(this.task_pending);
+  }
+
+  execute() {
+    if (this.taskService.algoritimo) {
+      if (this.taskService.algoritimo == "FIFO") {
+        this.fifo();
+      } else if (this.taskService.algoritimo == 'PRIO') {
+        this.prioridade();
+      }
+    } else {
+      this.router.navigateByUrl('algorithm')
+    }
+  }
+
+   compare(a,b) {
+    if (a.last_nom < b.last_nom)
+      return -1;
+    if (a.last_nom > b.last_nom)
+      return 1;
+    return 0;
+  }
+
+  
+
+  prioridade() {
+    console.log(this.task_pending.sort(this.ordenaPrioridade))
+  }
+
+  ordenaPrioridade(a, b) {
+    if(a.priority > b.priority) {
+      return -1;
+    }
+
+    if(a.priority < b.priority) {
+      return 1;
+    }
+    return 0
+  }
+
+  ordenaTempoDuracao(a, b) {
+    if(a.priority > b.priority) {
+      return -1;
+    }
+
+    if(a.priority < b.priority) {
+      return 1;
+    }
+    return 0
   }
 
   backCreateTask() {

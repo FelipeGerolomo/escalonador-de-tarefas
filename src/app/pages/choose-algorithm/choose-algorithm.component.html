@@ -13,13 +13,13 @@
               <form>
                 <div class="form-row">
                   <div class="form-group col">
-                    <label for="">Algoritimo</label>
-                    <select name="" id="" class="form-control">
-                      <option value="">FIFO</option>
-                      <option value="">CURTO PRIMEIRO</option>
-                      <option value="">PRIORIDADE</option>
-                      <option value="">CIRCULAR</option>
-                      <option value="">TODOS</option>
+                    <label for="algoritimo">Algoritimo</label>
+                    <select [(ngModel)]='this.taskService.algoritimo' name="algoritimo" id="algoritimo" class="form-control">
+                      <option value="FIFO">FIFO</option>
+                      <option value="CURTO">CURTO PRIMEIRO</option>
+                      <option value="PRIO">PRIORIDADE</option>
+                      <option value="CIR">CIRCULAR</option>
+                      <option value="TDS">TODOS</option>
                     </select>
                   </div>
                 </div>
